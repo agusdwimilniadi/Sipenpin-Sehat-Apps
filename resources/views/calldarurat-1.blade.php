@@ -102,7 +102,7 @@ var input_blanter = document.getElementById('wa_name');
 
 /* Whatsapp Settings */
 var walink = 'https://api.whatsapp.com/send',
-    phone = '6285812557541',
+    phone = '085812557541',
     text_yes = 'Terkirim.',
     text_no = 'Isi Semua Formulir, Lalu Klik Kirim Pesan';
 

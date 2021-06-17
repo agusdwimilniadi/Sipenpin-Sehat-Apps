@@ -29,7 +29,9 @@
                 <a class="collapse-item @if ($onSide == 'pekerjaan') active @endif" href="{{url('/back-master/pekerjaan')}}">Pekerjaan</a>
                 <a class="collapse-item @if ($onSide == 'statusHubungan') active @endif" href="{{url('/back-master/status-hubungan')}}">Status Hubungan</a>
                 <a class="collapse-item @if ($onSide == 'dusun') active @endif" href="{{url('/back-master/dusun')}}">Dusun</a>
-                <a class="collapse-item @if ($onSide == 'whatsapp') active @endif" href="{{url('/back-master/whatsapp')}}">Nomor WA</a>
+                <a class="collapse-item @if ($onSide == 'bidan') active @endif" href="{{url('/back-master/bidan')}}">Bidan</a>
+                <a class="collapse-item @if ($onSide == 'perawat') active @endif" href="{{url('/back-master/perawat')}}">Perawat</a>
+                <a class="collapse-item @if ($onSide == 'kader') active @endif" href="{{url('/back-master/kader')}}">Kader</a>
             </div>
         </div>
     </li>

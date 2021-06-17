@@ -6,10 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Traits\HasRoles;
 
-class MasterWhatsapp extends Model
+class MasterKader extends Model
 {
     use HasFactory, HasRoles;
-
-    protected $table = 'whatsapp_table';
+    protected $table = 'wa_kader';
     protected $primaryKey = 'id';
 }

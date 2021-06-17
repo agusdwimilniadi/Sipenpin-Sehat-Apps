@@ -83,9 +83,20 @@ Route::group(['middleware' => ['role:Superadmin']], function () {
     Route::post('/back-master/dusun/save', [AdminMasterController::class, 'saveDusun']);
     Route::delete('/back-master/dusun/{master}/drop', [AdminMasterController::class, 'dropDusun']);
 
-    Route::get('/back-master/whatsapp', [AdminMasterController::class, 'indexWhatsapp']);
-    Route::post('/back-master/whatsapp/save', [AdminMasterController::class, 'saveDusun']);
-    Route::delete('/back-master/whatsapp/{master}/drop', [AdminMasterController::class, 'dropDusun']);
+    Route::get('/back-master/bidan', [AdminMasterController::class, 'indexBidan']);
+    Route::post('/back-master/bidan/save', [AdminMasterController::class, 'saveBidan']);
+    Route::delete('/back-master/bidan/{master}/drop', [AdminMasterController::class, 'dropBidan']);
+    Route::patch('/back-master/bidan/{master}/bidanActive', [AdminMasterController::class, 'bidanActive']);
+
+    Route::get('/back-master/perawat', [AdminMasterController::class, 'indexPerawat']);
+    Route::post('/back-master/perawat/save', [AdminMasterController::class, 'savePerawat']);
+    Route::delete('/back-master/perawat/{master}/drop', [AdminMasterController::class, 'dropPerawat']);
+    Route::patch('/back-master/perawat/{master}/perawatActive', [AdminMasterController::class, 'perawatActive']);
+
+    Route::get('/back-master/kader', [AdminMasterController::class, 'indexKader']);
+    Route::post('/back-master/kader/save', [AdminMasterController::class, 'saveKader']);
+    Route::delete('/back-master/kader/{master}/drop', [AdminMasterController::class, 'dropKader']);
+    Route::patch('/back-master/kader/{master}/kaderActive', [AdminMasterController::class, 'kaderActive']);
 
     Route::get('/back-user-detail', [AdminUserDetailController::class, 'index']);
     Route::get('/back-user-detail/add', [AdminUserDetailController::class, 'add']);

@@ -1,5 +1,5 @@
 @extends('admin.core.core-dashboard')
-@section('onPage', 'Dusun')
+@section('onPage', 'Kader')
 
 @section('extraCSS')
     <link href="{{asset('admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
@@ -29,14 +29,23 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Form Whatsapp</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form Master kader</h6>
             </div>          
-            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/back-master/dusun/save')}}">
+            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/back-master/kader/save')}}">
                 @csrf
                 <div class="form-group">
-                    <label for="nomor_whatsapp" class="ml-1">Nomor Whatsapp :</label>
-                    <input type="text" class="form-control  @error('nomor_whatsapp') is-invalid @enderror" name="nomor_whatsapp" placeholder="Nomor Whatsapp..." value="{{old('nomor_whatsapp')}}">
-                    @error('nomor_whatsapp')
+                    <label for="nama_kader" class="ml-1">Nama kader :</label>
+                    <input type="text" class="form-control  @error('nama_kader') is-invalid @enderror" name="nama_kader" placeholder="Nama kader..." value="{{old('nama_kader')}}">
+                    @error('nama_kader')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="nomor_kader" class="ml-1">Nomor HP/WhatsApp kader :</label>
+                    <input type="text" class="form-control  @error('nomor_kader') is-invalid @enderror" name="nomor_kader" placeholder="Nomor kader..." value="{{old('nomor_kader')}}">
+                    @error('nomor_kader')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
@@ -47,7 +56,7 @@
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>
                         </span>
-                        <span class="text">Simpan Nomor</span>
+                        <span class="text">Simpan kader</span>
                     </button>
                 </div>
             </form>
@@ -58,7 +67,7 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">List Dusun</h6>
+              <h6 class="m-0 font-weight-bold text-primary">List Kader</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -66,21 +75,43 @@
                         <thead>
                             <tr>
                                 <th><center>No.</center></th>
-                                <th><center>Nomor Whatsapp</center></th>
+                                <th><center>Nama Jenis Dusun</center></th>
+                                <th><center>Nomor Kader</center></th>
+                                <th><center>Status Kader</center></th>
                                 <th><center>Aksi</center></th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($listWhatsapp as $item)
+                            @foreach ($listKader as $item)
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
-                                <td class="align-middle"><center>{{$item->nomor_whatsapp}}</center></td>
+                                <td class="align-middle"><center>{{$item->nama_kader}}</center></td>
+                                <td class="align-middle"><center>{{$item->nomor_kader}}</center></td>
                                 <td class="align-middle"><center>
-                                    <form action="{{url('/back-master/dusun')}}/{{$item->id}}/drop" method="POST" class="d-inline">
+                                @if ($item->is_active == 1)
+                                    Aktif
+                                    @else
+                                    Tidak Aktif
+                                @endif</center></td>
+                                <td class="align-middle"><center>
+                                    <form action="{{url('/back-master/kader')}}/{{$item->id}}/drop" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-danger btn-circle" onclick="return confirm('Hapus Data ?')">
                                             <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <form action="{{url('/back-master/kader')}}/{{$item->id}}/kaderActive" method="POST" class="d-inline">
+                                        @method('patch')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-primary btn-circle">
+                                            @if ($item->is_active == 1)
+                                                <i class="fas fa-toggle-on"></i>
+                                                @else
+                                                <i class="fas fa-toggle-off"></i>
+                                            @endif
+                                            
                                         </button>
                                     </form>
                                 </center></td>
