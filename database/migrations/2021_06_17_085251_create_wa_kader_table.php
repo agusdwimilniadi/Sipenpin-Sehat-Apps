@@ -18,6 +18,8 @@ class CreateWaKaderTable extends Migration
             $table->string('nama_kader');
             $table->string('nomor_kader');
             $table->boolean('is_active');
+            $table->time('jam_awal');
+            $table->time('jam_akhir');
             $table->timestamps();
         });
     }

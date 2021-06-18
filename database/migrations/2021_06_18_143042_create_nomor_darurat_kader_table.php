@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWaPerawatTable extends Migration
+class CreateNomorDaruratKaderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateWaPerawatTable extends Migration
      */
     public function up()
     {
-        Schema::create('wa_perawat', function (Blueprint $table) {
+        Schema::create('nomor_darurat_kader', function (Blueprint $table) {
             $table->increments('id', 10);
-            $table->string('nama_perawat');
-            $table->string('nomor_perawat');
-            $table->boolean('is_perawat');
-            $table->time('jam_awal');
-            $table->time('jam_akhir');
+            $table->string('nama_kontak');
+            $table->string('nomor_kader');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateWaPerawatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wa_perawat');
+        Schema::dropIfExists('nomor_darurat_kader');
     }
 }

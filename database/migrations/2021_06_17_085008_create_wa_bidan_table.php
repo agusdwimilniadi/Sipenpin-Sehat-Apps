@@ -18,6 +18,8 @@ class CreateWaBidanTable extends Migration
             $table->string('nama_bidan');
             $table->string('nomor_bidan');
             $table->boolean('is_active');
+            $table->time('jam_awal');
+            $table->time('jam_akhir');
             $table->timestamps();
         });
     }

@@ -32,18 +32,19 @@
               <tr>
                 <th scope="row">1</th>
                 <td>Bidan</td>
-                <td>07.00-18.00 WIB</td>
+                <td>{{\Carbon\Carbon::createFromFormat('H:i:s', $bidan_aktif->jam_awal)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s', $bidan_aktif->jam_akhir)->format('H:i')}}
+                    WIB</td>
               </tr>
               <tr>
                 <th scope="row">2</th>
                 <td>Perawat</td>
-                <td>07.00-20.00 WIB</td>
+                <td>{{\Carbon\Carbon::createFromFormat('H:i:s', $perawat_aktif->jam_awal)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s', $perawat_aktif->jam_akhir)->format('H:i')}} WIB</td>
 
               </tr>
               <tr>
                 <th scope="row">3</th>
                 <td>Kader Kesehatan</td>
-                <td>10.00-23.00 WIB</td>
+                <td>{{\Carbon\Carbon::createFromFormat('H:i:s', $kader_aktif->jam_awal)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s', $kader_aktif->jam_akhir)->format('H:i')}} WIB</td>
               </tr>
             </tbody>
           </table>
@@ -95,17 +96,17 @@
                 return i;
             }
             var enableDisable = function(){
-                var UTC_hours = new Date().getUTCHours()+8 ;
+                var UTC_hours = new Date().getUTCHours()+7;
                 console.log(UTC_hours)
 
-                var buka_bidan = 7;
-                var tutup_bidan = 18;
+                var buka_bidan = {{\Carbon\Carbon::createFromFormat('H:i:s', $bidan_aktif->jam_awal)->format('H')}};
+                var tutup_bidan = {{\Carbon\Carbon::createFromFormat('H:i:s', $bidan_aktif->jam_akhir)->format('H')}};
 
-                var buka_perawat = 7;
-                var tutup_perawat = 20;
+                var buka_perawat = {{\Carbon\Carbon::createFromFormat('H:i:s', $perawat_aktif->jam_awal)->format('H')}};
+                var tutup_perawat = {{\Carbon\Carbon::createFromFormat('H:i:s', $perawat_aktif->jam_akhir)->format('H')}};
 
-                var buka_kader = 10;
-                var tutup_kader = 23;
+                var buka_kader = {{\Carbon\Carbon::createFromFormat('H:i:s', $kader_aktif->jam_awal)->format('H')}};
+                var tutup_kader = {{\Carbon\Carbon::createFromFormat('H:i:s', $kader_aktif->jam_akhir)->format('H')}};
 
 
                 if (UTC_hours >= buka_bidan && UTC_hours < tutup_bidan) {

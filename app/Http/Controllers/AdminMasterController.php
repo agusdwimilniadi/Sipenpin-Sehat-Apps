@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\MasterPekerjaan;
 use App\Models\MasterStatusHubungan;
 use App\Models\MasterDusun;
-
-
+use App\Models\MasterNomorKader;
 
 class AdminMasterController extends Controller
 {
@@ -49,6 +48,11 @@ class AdminMasterController extends Controller
     {
         $listKader = MasterKader::all();
         return view('admin.superadmin.master-kader', ['listKader' => $listKader])->with('onSide', 'kader');
+    }
+    public function indexNomorKader()
+    {
+        $listNomorKader = MasterNomorKader::all();
+        return view('admin.superadmin.master-nomor-kader', ['listNomorKader' => $listNomorKader])->with('onSide', 'listNomorKader');
     }
 
 
@@ -118,6 +122,8 @@ class AdminMasterController extends Controller
             $newMasterBidan->nama_bidan = $request->nama_bidan;
             $newMasterBidan->nomor_bidan = $request->nomor_bidan;
             $newMasterBidan->is_active = 0; 
+            $newMasterBidan->jam_awal = $request->jam_awal;
+            $newMasterBidan->jam_akhir = $request->jam_akhir;
             $newMasterBidan->save();
             return redirect('/back-master/bidan')->with('success', 'Berhasil Menambahkan Bidan Baru');
 
@@ -137,6 +143,8 @@ class AdminMasterController extends Controller
             $newMasterPerawat = new MasterPerawat();
             $newMasterPerawat->nama_perawat = $request->nama_perawat;
             $newMasterPerawat->nomor_perawat = $request->nomor_perawat;
+            $newMasterPerawat->jam_awal = $request->jam_awal;
+            $newMasterPerawat->jam_akhir = $request->jam_akhir;
             $newMasterPerawat->is_perawat = 0; 
             $newMasterPerawat->save();
             return redirect('/back-master/perawat')->with('success', 'Berhasil Menambahkan Perawat Baru');
@@ -148,7 +156,7 @@ class AdminMasterController extends Controller
     public function saveKader(Request $request)
     {
         $request->validate([
-            'nama_kader' => 'required',
+            'nama_kontak' => 'required',
             'nomor_kader' => 'required',
         ]);
 
@@ -157,9 +165,31 @@ class AdminMasterController extends Controller
             $newMasterKader = new MasterKader();
             $newMasterKader->nama_kader = $request->nama_kader;
             $newMasterKader->nomor_kader = $request->nomor_kader;
+            $newMasterKader->jam_awal = $request->jam_awal;
+            $newMasterKader->jam_akhir = $request->jam_akhir;
             $newMasterKader->is_active = 0; 
             $newMasterKader->save();
             return redirect('/back-master/kader')->with('success', 'Berhasil Menambahkan Kader Baru');
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+        }
+    }
+    public function saveNomorKader(Request $request)
+    {
+        $request->validate([
+            'nama_kontak' => 'required',
+            'nomor_kader' => 'required',
+        ]);
+
+        try {
+
+            $newMasterNomorKader = new MasterNomorKader();
+            $newMasterNomorKader->nama_kontak = $request->nama_kontak;
+            $newMasterNomorKader->nomor_kader = $request->nomor_kader;
+            $newMasterNomorKader->is_active = 0; 
+            $newMasterNomorKader->save();
+            return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Menambahkan Kader Baru');
 
         } catch (\Throwable $th) {
             return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
@@ -223,6 +253,15 @@ class AdminMasterController extends Controller
             return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
         }
     }
+    public function dropNomorKader(MasterNomorKader $master)
+    {
+        try {
+            MasterNomorKader::destroy('id', $master->id);
+            return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Menghapus Nomor Kader');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+        }
+    }
 
 
     public function bidanActive(MasterBidan $master)
@@ -262,7 +301,21 @@ class AdminMasterController extends Controller
             MasterKader::where('id', $master->id)->update([
                 'is_active' => 1,
             ]);
-            return redirect('/back-master/kader')->with('success', 'Berhasil Mengaktifkan Perawat');
+            return redirect('/back-master/kader')->with('success', 'Berhasil Mengaktifkan Kader');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+        }
+    }
+    public function noKaderActive(MasterNomorKader $master)
+    {
+        try {
+            MasterNomorKader::where('is_active', 1)->update([
+                'is_active' => 0,
+            ]);
+            MasterNomorKader::where('id', $master->id)->update([
+                'is_active' => 1,
+            ]);
+            return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Mengaktifkan Nomor Kader');
         } catch (\Throwable $th) {
             return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
         }

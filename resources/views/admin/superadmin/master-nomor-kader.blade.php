@@ -1,5 +1,5 @@
 @extends('admin.core.core-dashboard')
-@section('onPage', 'Perawat')
+@section('onPage', 'Nomor Darurat Kader')
 
 @section('extraCSS')
     <link href="{{asset('admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
@@ -29,41 +29,23 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Form Master Perawat</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Form Nomor Darurat Kader</h6>
             </div>          
-            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/back-master/perawat/save')}}">
+            <form class="card-body" method="POST" enctype="multipart/form-data" action="{{url('/back-master/nomor_kader/save')}}">
                 @csrf
                 <div class="form-group">
-                    <label for="nama_perawat" class="ml-1">Nama Perawat :</label>
-                    <input type="text" class="form-control  @error('nama_perawat') is-invalid @enderror" name="nama_perawat" placeholder="Nama Perawat..." value="{{old('nama_perawat')}}">
-                    @error('nama_perawat')
+                    <label for="nama_kontak" class="ml-1">Nama Kontak Kader :</label>
+                    <input type="text" class="form-control  @error('nama_kontak') is-invalid @enderror" name="nama_kontak" placeholder="Nama kader..." value="{{old('nama_kontak')}}">
+                    @error('nama_kontak')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="nomor_perawat" class="ml-1">Nomor HP/WhatsApp Perawat :</label>
-                    <input type="text" class="form-control  @error('nomor_perawat') is-invalid @enderror" name="nomor_perawat" placeholder="Nomor Perawat..." value="{{old('nomor_perawat')}}">
-                    @error('nomor_perawat')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="jam_awal" class="ml-1">Jam Buka (WIB) :</label>
-                    <input type="time" class="form-control  @error('jam_awal') is-invalid @enderror" name="jam_awal" placeholder="Nomor Bidan..." value="{{old('jam_awal')}}">
-                    @error('jam_awal')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label for="jam_akhir" class="ml-1">Jam Tutup (WIB) :</label>
-                    <input type="time" class="form-control  @error('jam_akhir') is  -invalid @enderror" name="jam_akhir" placeholder="Nomor Bidan..." value="{{old('jam_akhir')}}">
-                    @error('jam_akhir')
+                    <label for="nomor_kader" class="ml-1">Nomor Darurat Kader :</label>
+                    <input type="text" class="form-control  @error('nomor_kader') is-invalid @enderror" name="nomor_kader" placeholder="Nomor kader..." value="{{old('nomor_kader')}}">
+                    @error('nomor_kader')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>
@@ -74,7 +56,7 @@
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>
                         </span>
-                        <span class="text">Simpan Perawat</span>
+                        <span class="text">Simpan Nomor Kader</span>
                     </button>
                 </div>
             </form>
@@ -85,7 +67,7 @@
     <div class="col-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">List Perawat</h6>
+              <h6 class="m-0 font-weight-bold text-primary">List Kader</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -93,40 +75,37 @@
                         <thead>
                             <tr>
                                 <th><center>No.</center></th>
-                                <th><center>Nama Jenis Dusun</center></th>
-                                <th><center>Nomor Perawat</center></th>
-                                <th><center>Jam Operasi</center></th>
-                                <th><center>Status Perawat</center></th>
+                                <th><center>Nama Kontak</center></th>
+                                <th><center>Nomor Kader</center></th>
+                                <th><center>Status Kader</center></th>
                                 <th><center>Aksi</center></th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($listPerawat as $item)
+                            @foreach ($listNomorKader as $item)
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
-                                <td class="align-middle"><center>{{$item->nama_perawat}}</center></td>
-                                <td class="align-middle"><center>{{$item->nomor_perawat}}</center></td>
-                                <td class="align-middle"><center>{{$item->jam_awal}}-{{$item->jam_akhir}} WIB</center></td>
+                                <td class="align-middle"><center>{{$item->nama_kontak}}</center></td>
+                                <td class="align-middle"><center>{{$item->nomor_kader}}</center></td>
                                 <td class="align-middle"><center>
-                                @if ($item->is_perawat == 1)
+                                @if ($item->is_active == 1)
                                     Aktif
                                     @else
                                     Tidak Aktif
                                 @endif</center></td>
                                 <td class="align-middle"><center>
-                                    <form action="{{url('/back-master/perawat')}}/{{$item->id}}/drop" method="POST" class="d-inline">
+                                    <form action="{{url('/back-master/nomor_kader')}}/{{$item->id}}/drop" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button type="submit" class="btn btn-sm btn-danger btn-circle" onclick="return confirm('Hapus Data ?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
-                                    <form action="{{url('/back-master/perawat')}}/{{$item->id}}/perawatActive" method="POST" class="d-inline">
+                                    <form action="{{url('/back-master/nomor_kader')}}/{{$item->id}}/noKaderActive" method="POST" class="d-inline">
                                         @method('patch')
                                         @csrf
-                                        
-                                            @if ($item->is_perawat == 1)
+                                            @if ($item->is_active == 1)
                                                 <button type="submit" class="btn btn-sm btn-primary btn-circle">
                                                     <i class="fas fa-toggle-on"></i>
                                                 </button>

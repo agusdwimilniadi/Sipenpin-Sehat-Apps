@@ -52,6 +52,24 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="jam_awal" class="ml-1">Jam Buka (WIB) :</label>
+                    <input type="time" class="form-control  @error('jam_awal') is-invalid @enderror" name="jam_awal" placeholder="Nomor Bidan..." value="{{old('jam_awal')}}">
+                    @error('jam_awal')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="jam_akhir" class="ml-1">Jam Tutup (WIB) :</label>
+                    <input type="time" class="form-control  @error('jam_akhir') is  -invalid @enderror" name="jam_akhir" placeholder="Nomor Bidan..." value="{{old('jam_akhir')}}">
+                    @error('jam_akhir')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <button class="btn btn-primary btn-icon-split mt-2 float-right" type="submit">
                         <span class="icon text-white-50">
                             <i class="fas fa-save"></i>
@@ -77,6 +95,7 @@
                                 <th><center>No.</center></th>
                                 <th><center>Nama Jenis Dusun</center></th>
                                 <th><center>Nomor Kader</center></th>
+                                <th><center>Jam Beroprasi</center></th>
                                 <th><center>Status Kader</center></th>
                                 <th><center>Aksi</center></th>
 
@@ -88,6 +107,7 @@
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle"><center>{{$item->nama_kader}}</center></td>
                                 <td class="align-middle"><center>{{$item->nomor_kader}}</center></td>
+                                <td class="align-middle"><center>{{$item->jam_awal}}-{{$item->jam_akhir}} WIB</center></td>
                                 <td class="align-middle"><center>
                                 @if ($item->is_active == 1)
                                     Aktif
@@ -105,14 +125,15 @@
                                     <form action="{{url('/back-master/kader')}}/{{$item->id}}/kaderActive" method="POST" class="d-inline">
                                         @method('patch')
                                         @csrf
-                                        <button type="submit" class="btn btn-sm btn-primary btn-circle">
                                             @if ($item->is_active == 1)
-                                                <i class="fas fa-toggle-on"></i>
+                                                <button type="submit" class="btn btn-sm btn-primary btn-circle">
+                                                    <i class="fas fa-toggle-on"></i>
+                                                </button>
                                                 @else
-                                                <i class="fas fa-toggle-off"></i>
+                                                <button type="submit" class="btn btn-sm btn-outline-primary btn-circle">
+                                                    <i class="fas fa-toggle-off"></i>
+                                                </button>
                                             @endif
-                                            
-                                        </button>
                                     </form>
                                 </center></td>
                             </tr>
