@@ -33,7 +33,7 @@
                 <a class="collapse-item @if ($onSide == 'perawat') active @endif" href="{{url('/back-master/perawat')}}">Perawat</a>
                 <a class="collapse-item @if ($onSide == 'kader') active @endif" href="{{url('/back-master/kader')}}">Kader</a>
                 <a class="collapse-item @if ($onSide == 'nomor_kader') active @endif" href="{{url('/back-master/nomor_kader')}}">No. Darurat Kader</a>
-                <a class="collapse-item @if ($onSide == 'nomor_kades') active @endif" href="{{url('/back-master/nomor_kades')}}">No. Darurat nomor_kades</a>
+                <a class="collapse-item @if ($onSide == 'nomor_kades') active @endif" href="{{url('/back-master/nomor_kades')}}">No. Darurat Kades</a>
             </div>
         </div>
     </li>

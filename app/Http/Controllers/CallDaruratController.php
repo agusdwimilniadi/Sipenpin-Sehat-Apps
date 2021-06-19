@@ -13,7 +13,8 @@ class CallDaruratController extends Controller
     public function index()
     {
         $getNomorKaderActive = \DB::table('nomor_darurat_kader')->where('is_active', 1)->first();
-        return view('callbutton', ['nomor_kader_aktif' => $getNomorKaderActive]);
+        $getNomorKadesActive = \DB::table('nomor_darurat_kades')->where('is_active', 1)->first();
+        return view('callbutton', ['nomor_kader_aktif' => $getNomorKaderActive, 'nomor_kades_aktif' => $getNomorKadesActive]);
     }
     public function bidan()
     {

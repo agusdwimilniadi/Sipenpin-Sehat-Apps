@@ -103,6 +103,11 @@ Route::group(['middleware' => ['role:Superadmin']], function () {
     Route::delete('/back-master/nomor_kader/{master}/drop', [AdminMasterController::class, 'dropNomorKader']);
     Route::patch('/back-master/nomor_kader/{master}/noKaderActive', [AdminMasterController::class, 'noKaderActive']);
 
+    Route::get('/back-master/nomor_kades', [AdminMasterController::class, 'indexNomorKades']);
+    Route::post('/back-master/nomor_kades/save', [AdminMasterController::class, 'saveNomorKades']);
+    Route::delete('/back-master/nomor_kades/{master}/drop', [AdminMasterController::class, 'dropNomorKades']);
+    Route::patch('/back-master/nomor_kades/{master}/noKadesActive', [AdminMasterController::class, 'noKadesActive']);
+
     Route::get('/back-user-detail', [AdminUserDetailController::class, 'index']);
     Route::get('/back-user-detail/add', [AdminUserDetailController::class, 'add']);
     Route::post('/back-user-detail/save', [AdminUserDetailController::class, 'save']);

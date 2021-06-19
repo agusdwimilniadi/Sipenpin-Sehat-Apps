@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-6 text-center">
-            <a href="tel:+62-858-1255-7541" >
+            <a href="tel:{{$nomor_kades_aktif->nomor_kades}}" >
                 <img src="{{asset('image/menu/cal-4.svg')}}" alt="" srcset="" style="width: 100%"><br>
             </a>
         </div>
