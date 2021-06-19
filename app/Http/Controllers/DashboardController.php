@@ -13,12 +13,13 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        if(Auth::user()->hasRole('Superadmin')){
-            return view('admin.superadmin.dashboard')->with('onSide', 'dashboard');
-        } elseif(Auth::user()->hasRole('Admin Kesehatan')){
-            echo "Admin Kesehatan";
-        } elseif(Auth::user()->hasRole('Admin Kader')){
-            echo "Admin Kader";
-        }
+        // if(Auth::user()->hasRole('Superadmin')){
+        //     return view('admin.superadmin.dashboard')->with('onSide', 'dashboard');
+        // } elseif(Auth::user()->hasRole('Admin Kesehatan')){
+        //     echo "Admin Kesehatan";
+        // } elseif(Auth::user()->hasRole('Admin Kader')){
+        //     echo "Admin Kader";
+        // }
+        return view('admin.superadmin.dashboard')->with('onSide', 'dashboard');
     }
 }

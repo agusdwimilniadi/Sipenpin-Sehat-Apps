@@ -59,7 +59,7 @@ Route::get('/konsultasi', [KonsultasiController::class, 'index']);
 
 Auth::routes();
 
-Route::group(['middleware' => ['role:Superadmin']], function () {
+// Route::group(['middleware' => ['role:Superadmin']], function () {
     Route::get('/back-berita', [AdminBeritaController::class, 'index']);
     Route::post('/back-berita/save', [AdminBeritaController::class, 'save']);
     Route::post('/back-berita/{berita}/edit', [AdminBeritaController::class, 'edit']);
@@ -119,6 +119,6 @@ Route::group(['middleware' => ['role:Superadmin']], function () {
     Route::post('/back-user/save', [AdminUserController::class, 'save']);
     Route::patch('/back-user/{user}/reset', [AdminUserController::class, 'reset']);
     Route::delete('/back-user/{user}/drop', [AdminUserController::class, 'drop']);
-});
+// });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

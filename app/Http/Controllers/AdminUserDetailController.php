@@ -32,7 +32,7 @@ class AdminUserDetailController extends Controller
     public function index()
     {
         /* $listUserDetail = UserDetail::all(); */
-        $listUserDetail = \DB::table('user_detail')
+        $listUserDetail = \DB::table('user_detail|Admin Kesehatan')
         ->select('user_detail.*', 'users.name', 'dusun.nama_dusun', 'status_hubungan.nama_hubungan', 'pekerjaan.nama_pekerjaan')
         ->join('users', 'user_detail.user_id', '=', 'users.id')
         ->join('dusun', 'user_detail.dusun_id', '=', 'dusun.id')

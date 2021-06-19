@@ -44,7 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_singkat" class="ml-1" >Deskripsi Singkat :</label>
-                    <textarea cols="50" rows="10" placeholder="Deskripsi Singkat....." name="deskripsi_singkat" class="form-control  @error('deskripsi_singkat') is-invalid @enderror">{{old('deskripsi_singkat')}}</textarea>
+                    
+                    <textarea id="summernotess" cols="50" rows="10" placeholder="Deskripsi Singkat....." name="deskripsi_singkat" class="form-control  @error('deskripsi_singkat') is-invalid @enderror">{{old('deskripsi_singkat')}}</textarea>
                     @error('deskripsi_singkat')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -102,7 +103,7 @@
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle"><center>{{$item->judul}}</center></td>
-                                <td class="align-middle"><center>{{Str::limit($item->deskripsi_singkat, $limit=150, $end="...")}}</center></td>
+                                <td class="align-middle"><center>{!!Str::limit($item->deskripsi_singkat, $limit=150, $end="...")!!}</center></td>
                                 <td class="align-middle"><center>
                                     <a href="{{url('upload/perpustakaan/'.$item->file_buku)}}">
                                         <button type="button" type="submit" class="btn btn-info"><i class="fa fa-file-download"></i></button>

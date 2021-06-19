@@ -8,6 +8,8 @@
         <meta name="author" content="">
 
         <title>Sipenpin Admin | Dashboard</title>
+        <link rel="stylesheet" href="{{asset('Summernote/summernote.css')}}">
+
 
         <!-- Custom fonts for this template-->
         <link href="{{asset('admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -49,5 +51,14 @@
         <script src="{{asset('admin/js/sb-admin-2.min.js')}}"></script>
 
         @yield('extraJS')
+        <script src="{{asset('Summernote/summernote.min.js')}}"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            $('#summernotess').summernote({
+                height: "300px",
+                styleWithSpan: false
+            });
+            }); 
+        </script>
     </body>
 </html>

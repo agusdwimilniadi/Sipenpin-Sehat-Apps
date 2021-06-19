@@ -44,7 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_berita" class="ml-1">Deskripsi Berita :</label>
-                    <textarea placeholder="Deskripsi Berita....." name="deskripsi_berita" class="form-control" cols="50" rows="10"  @error('deskripsi_berita') is-invalid @enderror style="white-space: pre-wrap">{{old('deskripsi_berita')}}</textarea>
+                    	
+                    <textarea id="summernotess" name="deskripsi_berita" rows="10" placeholder="Deskripsi Berita....." class="form-control" cols="50" rows="10"  @error('deskripsi_berita') is-invalid @enderror style="white-space: pre-wrap">{{old('deskripsi_berita')}}</textarea>
                     
                     @error('deskripsi_berita')
                         <div class="invalid-feedback">
@@ -98,7 +99,7 @@
                             <tr>
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle"><center>{{$item->judul}}</center></td>
-                                <td class="align-middle"><center>{{Str::limit($item->deskripsi, $limit=150, $end="...")}}</center></td>
+                                <td class="align-middle"><center>{!!Str::limit($item->deskripsi, $limit=50, $end="...")!!}</center></td>
                                 <td class="align-middle"><center><img src="{{asset('upload/berita/'.$item->gambar)}}" style="width: 100px;"></center></td>
                                 <td class="align-middle"><center>
                                     <form action="{{url('/back-berita')}}/{{$item->id}}/edit" method="POST" class="d-inline">
@@ -135,4 +136,5 @@
         $('#dataTable').DataTable();
     });
 </script>
+
 @endsection

@@ -9,7 +9,7 @@ class AdminBeritaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:Superadmin']);
+        $this->middleware(['role:Superadmin|Admin Kader']);
     }
 
     public function index()
