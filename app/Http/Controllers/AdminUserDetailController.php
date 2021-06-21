@@ -26,13 +26,13 @@ class AdminUserDetailController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:Superadmin']);
+        $this->middleware(['role:Superadmin|Admin Kesehatan']);
     }
 
     public function index()
     {
         /* $listUserDetail = UserDetail::all(); */
-        $listUserDetail = \DB::table('user_detail|Admin Kesehatan')
+        $listUserDetail = \DB::table('user_detail')
         ->select('user_detail.*', 'users.name', 'dusun.nama_dusun', 'status_hubungan.nama_hubungan', 'pekerjaan.nama_pekerjaan')
         ->join('users', 'user_detail.user_id', '=', 'users.id')
         ->join('dusun', 'user_detail.dusun_id', '=', 'dusun.id')
