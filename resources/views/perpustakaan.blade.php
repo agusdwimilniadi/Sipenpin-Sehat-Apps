@@ -11,7 +11,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">{{$perpustakaan->judul}}</h5>
-              <p class="card-text">{{$perpustakaan->deskripsi_singkat}}</p>
+              <p class="card-text">{!!Str::limit($perpustakaan->deskripsi_singkat, $limit=150, $end="...")!!}</p>
               <a href="{{url('upload/perpustakaan/'.$perpustakaan->file_buku)}}" class="btn btn-primary" > Unduh buku</a>
             </div>
           </div>

@@ -128,7 +128,7 @@
                         {{$berita->judul}}
                     </div>
                     <div class="card-text">
-                        {{ substr($berita->deskripsi, 0, 20) }}
+                        {!!Str::limit($berita->deskripsi, $limit=50, $end="...")!!}
                     </div>
                     <a href="/detailberita/{{$berita->id}}" class="card-button"> Baca berita...</a>
                 </div>

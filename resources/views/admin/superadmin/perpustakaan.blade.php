@@ -44,8 +44,9 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_singkat" class="ml-1" >Deskripsi Singkat :</label>
-                    
-                    <textarea id="summernotess" cols="50" rows="10" placeholder="Deskripsi Singkat....." name="deskripsi_singkat" class="form-control  @error('deskripsi_singkat') is-invalid @enderror">{{old('deskripsi_singkat')}}</textarea>
+                    {{-- <textarea id="summernotess" name="deskripsi_berita" rows="10" placeholder="Deskripsi Berita....." class="form-control" cols="50" rows="10"  @error('deskripsi_berita') is-invalid @enderror style="white-space: pre-wrap">{{old('deskripsi_berita')}}</textarea> --}}
+
+                    <textarea id="summernotess" cols="50" rows="10" placeholder="Deskripsi Singkat....." name="deskripsi_singkat" class="form-control"  @error('deskripsi_singkat') is-invalid @enderror">{{old('deskripsi_singkat')}}</textarea>
                     @error('deskripsi_singkat')
                         <div class="invalid-feedback">
                             {{$message}}

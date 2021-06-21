@@ -25,7 +25,7 @@
         </div>
         <br>
         <div class="mt-2 mb-2">
-            {{$berita->deskripsi}}
+            {!!$berita->deskripsi!!}
         </div>
         <br>
         <a href="/berita" class="btn btn-primary" style="background-color: #48C1F0; border-color:unset;border-radius: 30px">Kembali</a>
