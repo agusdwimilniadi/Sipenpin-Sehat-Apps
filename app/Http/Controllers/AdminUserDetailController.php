@@ -58,7 +58,6 @@ class AdminUserDetailController extends Controller
     {
         $request->validate([
             /* identitas */
-            'kepala_user' => 'required',
             'nama_lengkap' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -109,6 +108,7 @@ class AdminUserDetailController extends Controller
             't_posbindu' => 'required',
             't_praktik_dukun_bayi_bersalin' => 'required',
             'asi_ibu_ekslusif' => 'required',
+            'jaminan_asuransi_kesehatan' => 'required',
             /* riwayat aktivitas fisik */
             'f_berjalan' => 'required',
             'f_olahraga' => 'required',
@@ -156,7 +156,7 @@ class AdminUserDetailController extends Controller
 
         try {
             $newUserDetail = new UserDetail();
-            $newUserDetail->user_id = $request->kepala_user; 
+            $newUserDetail->user_id = \Auth::user()->id; 
             $newUserDetail->nama_lengkap = $request->nama_lengkap;
             $newUserDetail->tempat_lahir = $request->tempat_lahir;
             $newUserDetail->tanggal_lahir = $request->tanggal_lahir;
@@ -215,6 +215,7 @@ class AdminUserDetailController extends Controller
             $newFasilitasKesehatan->t_posbindu = $request->t_posbindu;
             $newFasilitasKesehatan->t_praktik_dukun_bayi_bersalin = $request->t_praktik_dukun_bayi_bersalin;
             $newFasilitasKesehatan->asi_ibu_ekslusif = $request->asi_ibu_ekslusif;
+            $newFasilitasKesehatan->jaminan_asuransi_kesehatan = $request->jaminan_asuransi_kesehatan;
             $newFasilitasKesehatan->konsumsi_obat = $request->konsumsi_obat;
             $newFasilitasKesehatan->konsumsi_jamu = $request->konsumsi_jamu;
             $newFasilitasKesehatan->bpjs = $request->bpjs;
