@@ -36,6 +36,7 @@ class CreateRiwayatFasilitasKesehatanTable extends Migration
             $table->string('konsumsi_obat')->nullable();
             $table->string('konsumsi_jamu')->nullable();
             $table->string('bpjs')->nullable();
+            $table->string('jaminan_asuransi_kesehatan');
             $table->timestamps();
         });
     }

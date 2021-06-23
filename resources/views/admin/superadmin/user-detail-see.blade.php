@@ -13,6 +13,10 @@
                     <table class="table table-bordered thisDisplay" id="dataTable" width="100%" cellspacing="0">
                         <tbody>
                             <tr>
+                                <th class="w-25">Data Diinput</th>
+                                <td>{{$getUserDetail->created_at}}</td>
+                            </tr>
+                            <tr>
                                 <th class="w-25">User Utama</th>
                                 <td>{{$getUserDetail->name}}</td>
                             </tr>
@@ -521,6 +525,24 @@
                                         Iya
                                     @elseif ($getUserFasilitas->asi_ibu_ekslusif == 0)
                                         Tidak
+                                    @else
+                                        [Tidak Diketahui]
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="w-25">Apakah saudara/sdri mempunyai jaminan asuransi kesehatan ?</th>
+                                <td>
+                                    @if ($getUserFasilitas->jaminan_asuransi_kesehatan == 1)
+                                        Asuransi kesehatan secara mandiri (Prudential, Manulife, dsb)
+                                    @elseif ($getUserFasilitas->jaminan_asuransi_kesehatan == 2)
+                                        Kartu Indonesia Sehat
+                                    @elseif ($getUserFasilitas->jaminan_asuransi_kesehatan == 3)
+                                        Kartu BPJS Kesehatan
+                                    @elseif ($getUserFasilitas->jaminan_asuransi_kesehatan == 4)
+                                        Kartu BPJS Ketenagakerjaan
+                                    @elseif ($getUserFasilitas->jaminan_asuransi_kesehatan == 5)
+                                        Belum punya
                                     @else
                                         [Tidak Diketahui]
                                     @endif

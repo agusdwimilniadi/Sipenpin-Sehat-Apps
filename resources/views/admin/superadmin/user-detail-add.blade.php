@@ -852,6 +852,47 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="jaminan_asuransi_kesehatan" class="ml-1"><strong>Apakah saudara/sdri mempunyai jaminan asuransi kesehatan ? :</strong></label><br>
+                                <div class="form-check form-check-inline ml-1">
+                                    <input class="form-check-input" id="jaminan_asuransi_kesehatan_mandiri" type="radio" name="jaminan_asuransi_kesehatan" value="1" @if(old('jaminan_asuransi_kesehatan') == "1") checked @endif>
+                                    <label class="form-check-label" for="jaminan_asuransi_kesehatan_mandiri">Asuransi kesehatan secara mandiri (Prudential, Manulife, dsb)</label>
+                                </div>
+                                <div class="form-check form-check-inline ml-1">
+                                    <input class="form-check-input" id="jaminan_asuransi_kesehatan_kis" type="radio" name="jaminan_asuransi_kesehatan" value="2" @if(old('jaminan_asuransi_kesehatan') == "0") checked @endif>
+                                    <label class="form-check-label" for="jaminan_asuransi_kesehatan_kis">Kartu Indonesia Sehat</label>
+                                </div>
+                                <div class="form-check form-check-inline ml-1">
+                                    <input class="form-check-input" id="jaminan_asuransi_kesehatan_bpjs_sehat" type="radio" name="jaminan_asuransi_kesehatan" value="3" @if(old('jaminan_asuransi_kesehatan') == "0") checked @endif>
+                                    <label class="form-check-label" for="jaminan_asuransi_kesehatan_bpjs_sehat">Kartu BPJS Kesehatan</label>
+                                </div>
+                                <div class="form-check form-check-inline ml-1">
+                                    <input class="form-check-input" id="jaminan_asuransi_kesehatan_bpjs_kerja" type="radio" name="jaminan_asuransi_kesehatan" value="4" @if(old('jaminan_asuransi_kesehatan') == "0") checked @endif>
+                                    <label class="form-check-label" for="jaminan_asuransi_kesehatan_bpjs_kerja">Kartu BPJS Ketenagakerjaan</label>
+                                </div>
+                                <div class="form-check form-check-inline ml-1">
+                                    <input class="form-check-input" id="jaminan_asuransi_kesehatan_belum" type="radio" name="jaminan_asuransi_kesehatan" value="5" @if(old('jaminan_asuransi_kesehatan') == "0") checked @endif>
+                                    <label class="form-check-label" for="jaminan_asuransi_kesehatan_belum">Belum punya</label>
+                                </div>
+                                @error('jaminan_asuransi_kesehatan')
+                                    <div class="invalid-feedback">
+                                        {{$message}}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="bpjs" class="ml-1"><strong>Nomor Jaminan Asuransi Kesehatan (Kosongi bila tidak ada) :</strong></label>
+                                <input type="text" class="form-control  @error('bpjs') is-invalid @enderror" name="bpjs" placeholder=""value="{{old('bpjs')}}">
+                                @error('bpjs')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="konsumsi_obat" class="ml-1"><strong>Obat yang dikonsumsi :</strong></label>
                                 <input type="text" class="form-control  @error('konsumsi_obat') is-invalid @enderror" name="konsumsi_obat" placeholder="Obat yang dikonsumsi..."value="{{old('konsumsi_obat')}}">
                                 @error('konsumsi_obat')
@@ -866,17 +907,6 @@
                                 <label for="konsumsi_jamu" class="ml-1"><strong>Jamu yang dikonsumsi :</strong></label>
                                 <input type="text" class="form-control  @error('konsumsi_jamu') is-invalid @enderror" name="konsumsi_jamu" placeholder="Jamu yang dikonsumsi..."value="{{old('konsumsi_jamu')}}">
                                 @error('konsumsi_jamu')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="bpjs" class="ml-1"><strong>BPJS (Kosongi bila tidak ada) :</strong></label>
-                                <input type="text" class="form-control  @error('bpjs') is-invalid @enderror" name="bpjs" placeholder="BPJS (Kosongi bila tidak ada)..."value="{{old('bpjs')}}">
-                                @error('bpjs')
                                 <div class="invalid-feedback">
                                     {{$message}}
                                 </div>

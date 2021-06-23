@@ -94,6 +94,7 @@ class PendataanController extends Controller
             't_posbindu' => 'required',
             't_praktik_dukun_bayi_bersalin' => 'required',
             'asi_ibu_ekslusif' => 'required',
+            'jaminan_asuransi_kesehatan' => 'required',
             /* riwayat aktivitas fisik */
             'f_berjalan' => 'required',
             'f_olahraga' => 'required',
@@ -200,6 +201,7 @@ class PendataanController extends Controller
             $newFasilitasKesehatan->t_posbindu = $request->t_posbindu;
             $newFasilitasKesehatan->t_praktik_dukun_bayi_bersalin = $request->t_praktik_dukun_bayi_bersalin;
             $newFasilitasKesehatan->asi_ibu_ekslusif = $request->asi_ibu_ekslusif;
+            $newFasilitasKesehatan->jaminan_asuransi_kesehatan = $request->jaminan_asuransi_kesehatan;
             $newFasilitasKesehatan->konsumsi_obat = $request->konsumsi_obat;
             $newFasilitasKesehatan->konsumsi_jamu = $request->konsumsi_jamu;
             $newFasilitasKesehatan->bpjs = $request->bpjs;

@@ -58,13 +58,14 @@
                                 <th><center>Alamat - RT - RW - Dusun</center></th>
                                 <th><center>NIK</center></th>
                                 <th><center>Status Hubungan</center></th>
-                                <th><center>Pekerjaan</center></th>
+                                <th><center>Tanggal Diinput</center></th>
                                 <th><center>Aksi</center></th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($listUserDetail as $item)
                             <tr>
+                                
                                 <td class="align-middle"><center>{{$loop->iteration}}</center></td>
                                 <td class="align-middle"><center>{{$item->name}}</center></td>
                                 <td class="align-middle"><center>{{$item->nama_lengkap}}</center></td>
@@ -74,7 +75,7 @@
                                 <td class="align-middle"><center>{{$item->alamat}} - {{$item->rt}} - {{$item->rw}} - {{$item->nama_dusun}}</center></td>
                                 <td class="align-middle"><center>{{$item->nik}}</center></td>
                                 <td class="align-middle"><center>{{$item->nama_hubungan}}</center></td>
-                                <td class="align-middle"><center>{{$item->nama_pekerjaan}}</center></td>
+                                <td class="align-middle"><center>{{$item->created_at}}</center></td>
                                 <td class="align-middle"><center>
                                     <form action="{{url('/back-user-detail')}}/{{$item->id}}/see" method="POST" class="d-inline">
                                         @csrf
@@ -82,6 +83,15 @@
                                             <i class="fas fa-eye"></i>
                                         </button>
                                     </form>
+
+                                    <form action="{{url('/back-user-detail')}}/{{$item->id}}/drop" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-sm btn-danger btn-circle" onclick="return confirm('Hapus Data ?')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    
                                 </center></td>
                             </tr>
                             @endforeach

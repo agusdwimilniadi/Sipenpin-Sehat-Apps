@@ -327,4 +327,14 @@ class AdminUserDetailController extends Controller
 
         return view('admin.superadmin.user-detail-see', ['getUserDetail' => $getUserDetail, 'getUserPenyakit' => $getUserPenyakit, 'getUserFasilitas' => $getUserFasilitas, 'getUserFisik' => $getUserFisik, 'getUserPsikis' => $getUserPsikis, 'getUserTidur' => $getUserTidur, 'getPhbsAirBersih' => $getPhbsAirBersih, 'getPhbsMencuciTangan' => $getPhbsMencuciTangan, 'getPhbsJambanSehat' => $getPhbsJambanSehat, 'getPhbsJentikNyamuk' => $getPhbsJentikNyamuk, 'getPhbsBuahSayur' => $getPhbsBuahSayur, 'getPhbsAktivitasFisik' => $getPhbsAktivitasFisik, 'getPhbsRokok' => $getPhbsRokok])->with('onSide', 'userDetail');
     }
+    public function drop(UserDetail $UserDetail)
+    {
+        try {
+            UserDetail::destroy('id', $UserDetail->id);
+            return redirect('/back-user-detail')->with('success', 'Berhasil Menghapus Data');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+        }
+        
+    }
 }

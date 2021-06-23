@@ -33,7 +33,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}" autocomplete="off">
                     @csrf
 					<span class="login100-form-title p-b-48">
 						<img src="{{asset('image/logo/logo.svg')}}" width="35%" alt="">
@@ -45,7 +45,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Masukan Email Valid">
 						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Username"></span>
+						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -55,6 +55,9 @@
 						<input class="input100" type="password" name="password">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
+					
+					<p>Belum punya akun? Daftar <a href="/register">disini</a></p>
+					
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">

@@ -16,14 +16,14 @@ class CallDaruratController extends Controller
         try {
             $getNomorKaderActive = DB::table('nomor_darurat_kader')->where('is_active', 1)->first();
             $getNomorKadesActive = DB::table('nomor_darurat_kades')->where('is_active', 1)->first();
-            if ($getNomorKaderActive != NULL && $getNomorKadesActive != NULL);
-            {
+            if ($getNomorKaderActive != NULL && $getNomorKadesActive != NULL){
                 return view('callbutton', ['nomor_kader_aktif' => $getNomorKaderActive, 'nomor_kades_aktif' => $getNomorKadesActive]);
-            } else {
+            } else{
                 return view('error');
             }
+        }catch (\Throwable $th) {
+            return view('error');
         }
-
     }
     public function bidan()
     {

@@ -33,7 +33,7 @@ use App\Http\Controllers\AdminUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Auth::routes();
 Route::get('/', [HomeController::class, 'logins']);
 Route::get('/back-log', [BackLogController::class, 'index']);
 Route::post('/back-log/admin', [BackLogController::class, 'login']);
@@ -57,7 +57,7 @@ Route::get('/calldarurat-4', [CallDaruratController::class, 'pemudadesa']);
 Route::get('/konsultasi', [KonsultasiController::class, 'index']);
 
 
-Auth::routes();
+
 
 // Route::group(['middleware' => ['role:Superadmin']], function () {
     Route::get('/back-berita', [AdminBeritaController::class, 'index']);
@@ -112,6 +112,7 @@ Auth::routes();
     Route::get('/back-user-detail/add', [AdminUserDetailController::class, 'add']);
     Route::post('/back-user-detail/save', [AdminUserDetailController::class, 'save']);
     Route::post('/back-user-detail/{UserDetail}/see', [AdminUserDetailController::class, 'see']);
+    Route::delete('/back-user-detail/{UserDetail}/drop', [AdminUserDetailController::class, 'drop']);
 
     Route::get('back-statistik', [AdminStatistikController::class, 'index']);
 
