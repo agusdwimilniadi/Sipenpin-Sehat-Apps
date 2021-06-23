@@ -162,7 +162,7 @@ class AdminMasterController extends Controller
     public function saveKader(Request $request)
     {
         $request->validate([
-            'nama_kontak' => 'required',
+            'nama_kader' => 'required',
             'nomor_kader' => 'required',
         ]);
 

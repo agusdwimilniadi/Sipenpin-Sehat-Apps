@@ -88,6 +88,12 @@ class StatistikController extends Controller
             $chartKualitasTidur3 = \DB::table('riwayat_kualitas_tidur')->where('k_lama_waktu_tidur', '=', 3)->count('k_lama_waktu_tidur');
         /* end riwayat aktivitass */
 
+            $chartJaminan1 = \DB::table('riwayat_fasilitas_kesehatan')->where('jaminan_asuransi_kesehatan', '=', 1)->count('jaminan_asuransi_kesehatan');
+            $chartJaminan2 = \DB::table('riwayat_fasilitas_kesehatan')->where('jaminan_asuransi_kesehatan', '=', 2)->count('jaminan_asuransi_kesehatan');
+            $chartJaminan3 = \DB::table('riwayat_fasilitas_kesehatan')->where('jaminan_asuransi_kesehatan', '=', 3)->count('jaminan_asuransi_kesehatan');
+            $chartJaminan4 = \DB::table('riwayat_fasilitas_kesehatan')->where('jaminan_asuransi_kesehatan', '=', 4)->count('jaminan_asuransi_kesehatan');
+            $chartJaminan5 = \DB::table('riwayat_fasilitas_kesehatan')->where('jaminan_asuransi_kesehatan', '=', 5)->count('jaminan_asuransi_kesehatan');
+
         /* chart riwayat fasilitas kesehatan */
             $chartFasilitasKesehatan = \DB::table('riwayat_fasilitas_kesehatan')
             ->get(array(
@@ -136,6 +142,6 @@ class StatistikController extends Controller
                 \DB::raw('SUM(p_lainnya) AS p_lainnya'),
             ));
         /* end riwayat penyakit */
-        return view('statistik', ['chartsAirBersih' => $chartsAirBersih, 'chartsAktivitasFisik' => $chartsAktivitasFisik, 'chartsBuahSayur' => $chartsBuahSayur, 'chartsJambanSehat' => $chartsJambanSehat, 'chartsJentikNyamuk' => $chartsJentikNyamuk, 'chartsMencuciTangan' => $chartsMencuciTangan, 'chartsRokok' => $chartsRokok, 'chartAktivitasFisik' => $chartAktivitasFisik, 'chartAktivitasPsikis' => $chartAktivitasPsikis, 'chartKualitasTidur1' => $chartKualitasTidur1, 'chartKualitasTidur2' => $chartKualitasTidur2, 'chartKualitasTidur3' => $chartKualitasTidur3, 'chartFasilitasKesehatan' => $chartFasilitasKesehatan, 'chartPenyakit' => $chartPenyakit]);
+        return view('statistik', ['chartsAirBersih' => $chartsAirBersih, 'chartsAktivitasFisik' => $chartsAktivitasFisik, 'chartsBuahSayur' => $chartsBuahSayur, 'chartsJambanSehat' => $chartsJambanSehat, 'chartsJentikNyamuk' => $chartsJentikNyamuk, 'chartsMencuciTangan' => $chartsMencuciTangan, 'chartsRokok' => $chartsRokok, 'chartAktivitasFisik' => $chartAktivitasFisik, 'chartAktivitasPsikis' => $chartAktivitasPsikis, 'chartKualitasTidur1' => $chartKualitasTidur1, 'chartKualitasTidur2' => $chartKualitasTidur2, 'chartKualitasTidur3' => $chartKualitasTidur3,'chartJaminan1' =>$chartJaminan1, 'chartJaminan2' => $chartJaminan2, 'chartJaminan3' => $chartJaminan3, 'chartJaminan4' => $chartJaminan4, 'chartJaminan5' => $chartJaminan5, 'chartFasilitasKesehatan' => $chartFasilitasKesehatan, 'chartPenyakit' => $chartPenyakit]);
     }
 }

@@ -13,7 +13,7 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik PHBS</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik PHBS</h6>
             </div>
             <div class="card-body">
                 <div id="chart_phbs_air_bersih" style="height: 500px"></div>
@@ -26,29 +26,27 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Fisik</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Fisik</h6>
             </div>
             <div class="card-body">
                 <div id="chart_riwayat_aktivitas_fisik" style="height: 400px"></div>
             </div>
         </div>
     </div>
-</div>
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Psikis</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Psikis</h6>
             </div>
             <div class="card-body">
                 <div id="chart_riwayat_aktivitas_psikis" style="height: 400px"></div>
             </div>
         </div>
     </div>
-</div>
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Frekuensi Tidur</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Aktivitas - Frekuensi Tidur</h6>
             </div>
             <div class="card-body">
                 <div id="chart_riwayat_aktivitas_tidur" style="height: 400px"></div>
@@ -61,10 +59,22 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Fasilitas Kesehatan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Fasilitas Kesehatan</h6>
             </div>
             <div class="card-body">
                 <div id="charts_fasilitas_kesehatan" style="height: 500px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Asuransi Kesehatan</h6>
+            </div>
+            <div class="card-body">
+                <div id="charts_asuransi_kesehatan" style="height: 500px"></div>
             </div>
         </div>
     </div>
@@ -74,7 +84,7 @@
     <div class="col-md-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Penyakit</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Statistik Riwayat Penyakit</h6>
             </div>
             <div class="card-body">
                 <div id="charts_riwayat_penyakit" style="height: 800px"></div>
@@ -85,7 +95,10 @@
 @endsection
 
 @section('extraJS')
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -323,6 +336,7 @@
     }
 </script>
 
+
 <script type="text/javascript">
     google.charts.load('current', {'packages':['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -333,16 +347,44 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Jenis', 'value'],
-            ['Mudah Marah', kualitas1],
-            ['Mudah Kesal', kualitas2],
-            ['Mudah Cemas', kualitas3],
+            ['Kurang dari 6 jam / hari', kualitas1],
+            ['6 - 8 jam / hari', kualitas2],
+            ['Lebih dari 8 jam / hari', kualitas3],
         ]);
         var options = {
-            title: 'Data Statistik Aktivitas Psikis',
+            title: 'Data Kualitas Tidur',
             is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_riwayat_aktivitas_tidur'));
+
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    var kualitas1 = <?php echo $chartJaminan1 ?>;
+    var kualitas2 = <?php echo $chartJaminan2 ?>;
+    var kualitas3 = <?php echo $chartJaminan3 ?>;
+    var kualitas4 = <?php echo $chartJaminan4 ?>;
+    var kualitas5 = <?php echo $chartJaminan5 ?>;
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Jenis', 'value'],
+            ['Asuransi kesehatan secara mandiri (Prudential, Manulife, dsb)', kualitas1],
+            ['Kartu Indonesia Sehat', kualitas2],
+            ['Kartu BPJS Kesehatan', kualitas3],
+            ['Kartu BPJS Ketenagakerjaan', kualitas4],
+            ['Belum punya', kualitas5],
+        ]);
+        var options = {
+            title: 'Data Asuransi Kesehatan',
+            is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('charts_asuransi_kesehatan'));
 
         chart.draw(data, options);
     }
@@ -511,5 +553,7 @@
 
         chart.draw(data, options);
     }
+</script>
+
 </script>
 @endsection
