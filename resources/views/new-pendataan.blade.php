@@ -1326,7 +1326,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="ab_sumber_air" class="ml-1">Apakah Air yang digunakan diperoleh dari mata air, sumur gali, penampungan air hujan, air kemasan, sumur pompa, atau PDAM? </label><br>   
+                                        <label for="ab_sumber_air" class="ml-1">Apakah Air yang digunakan diperoleh dari mata air, sumur gali, air kemasan, sumur pompa, atau PDAM? </label><br>   
                                         <div class="form-check form-check-inline ml-1">
                                             <input class="form-check-input" id="ab_sumber_air_yes" type="radio" name="ab_sumber_air" value="1" @if(old('ab_sumber_air') == "1") checked @endif>
                                             <label class="form-check-label" for="ab_sumber_air_yes">Ya</label>

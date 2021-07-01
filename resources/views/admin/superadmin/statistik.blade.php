@@ -545,7 +545,7 @@
             ['Lainnya', p_lainnya],
         ]);
         var options = {
-            title: 'Data Statistik Fasilitas Kesehatan - 4 Bulan Terakhir',
+            title: 'Data Statistik Riwayat Penyakit - 4 Bulan Terakhir',
             is3D: true,
         };
 

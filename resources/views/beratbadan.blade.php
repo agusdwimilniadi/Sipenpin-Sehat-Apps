@@ -29,13 +29,13 @@ if(weight > 0 && height > 0){
 var finalBmi = weight/(height*height)
 document.techBMI.bmi.value = finalBmi.toFixed(3);
 if(finalBmi < 18.5){
-document.techBMI.meaning.value = "Anda tidak sehat, terlalu kurus."
+document.techBMI.meaning.value = "Anda terlalu kurus."
     }
 if(finalBmi > 18.5 && finalBmi < 25){
 document.techBMI.meaning.value = "Anda cukup sehat."
     }
 if(finalBmi > 25 &&  finalBmi <30){
-document.techBMI.meaning.value = "You have overweight."
+document.techBMI.meaning.value = "Anda Kelebihan Berat Badan"
     }
 if(finalBmi > 30){
 document.techBMI.meaning.value = "Anda kelebihan berat badan."
