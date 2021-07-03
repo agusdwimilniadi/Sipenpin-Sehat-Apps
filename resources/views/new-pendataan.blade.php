@@ -1292,7 +1292,7 @@
                             </fieldset>
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title text-center mb-3">Riwayat Aktivitas Fisik dan Psikis :</h2>
+                                    <h2 class="fs-title text-center mb-3">Perilaku Hidup Sehat dan Bersih :</h2>
                                     <div class="form-group">
                                         <label for="ab_memasak_air" class="ml-1">Apakah anda Memasak air hingga mendidih sebelum dikonsumsi </label><br>   
                                         <div class="form-check form-check-inline ml-1">
