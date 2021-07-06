@@ -17,6 +17,28 @@
         <h4 class="text-left font-weight-bold sipenpin-subtitle" style="margin-top: -10px; margin-left: -10px">Pelayanan</h4>
         <br>
         <div class="row">
+            @if (session('success'))
+              <div class="alert alert-success sb-alert-icon m-3 w-100" role="alert">
+                  <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+                  <div class="sb-alert-icon-content">
+                      {{session('success')}}
+                  </div>
+              </div>
+            @endif
+          @if (session('failed'))
+              <div class="alert alert-danger sb-alert-icon m-3 w-100" role="alert">
+                  <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+                  <div class="sb-alert-icon-content">
+                      {{session('failed')}}
+                  </div>
+              </div>
+          @endif
+        </div>
+        <div class="row">
             <div class="col-4 text-center">
                 <a href="/pendataan"   >
                     <img src="{{asset('image/menu/1.svg')}}" alt="" srcset="" style="width: 100%"><br>
