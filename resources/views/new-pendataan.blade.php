@@ -1580,18 +1580,18 @@
                                     </div>
                                 </div>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Kembali" />
-                                <input type="submit"  name="next" class="next action-button" value="Lanjut" class="" value="Simpan" />
+                                <input type="submit"  name="next" class="next action-button" value="Simpan Data" />
                             </fieldset>
                             
                             <fieldset>
                                 <div class="form-card">
-                                    <h2 class="fs-title text-center">Selesai</h2> <br><br>
+                                    <h2 class="fs-title text-center">Harap Tunggu</h2> <br><br>
                                     <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                        <div class="col-3" style="margin:auto"> <img src="{{asset('load.svg')}}" width="40" height="40"> </div>
                                     </div> <br><br>
                                     <div class="row justify-content-center">
                                         <div class="col-7 text-center">
-                                            <h5>Data Berhasil Dimasukkan</h5>
+                                            <h5>Data masih di proses</h5>
                                         </div>
                                     </div>
                                     
