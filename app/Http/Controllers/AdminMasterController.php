@@ -16,7 +16,7 @@ class AdminMasterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['role:Superadmin|Admin Kader']);
+        $this->middleware(['role:Superadmin|Admin Kader|Admin Kesehatan']);
     }
 
     public function indexPekerjaan()
@@ -74,9 +74,8 @@ class AdminMasterController extends Controller
             $newMasterPekerjaan->nama_pekerjaan = $request->nama_pekerjaan;
             $newMasterPekerjaan->save();
             return redirect('/back-master/pekerjaan')->with('success', 'Berhasil Menambahkan Pekerjaan Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -92,9 +91,8 @@ class AdminMasterController extends Controller
             $newMasterHubungan->nama_hubungan = $request->nama_hubungan;
             $newMasterHubungan->save();
             return redirect('/back-master/status-hubungan')->with('success', 'Berhasil Menambahkan Status Hubungan Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -110,9 +108,8 @@ class AdminMasterController extends Controller
             $newMasterDusun->nama_dusun = $request->nama_dusun;
             $newMasterDusun->save();
             return redirect('/back-master/dusun')->with('success', 'Berhasil Menambahkan Dusun Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function saveBidan(Request $request)
@@ -127,14 +124,13 @@ class AdminMasterController extends Controller
             $newMasterBidan = new MasterBidan();
             $newMasterBidan->nama_bidan = $request->nama_bidan;
             $newMasterBidan->nomor_bidan = $request->nomor_bidan;
-            $newMasterBidan->is_active = 0; 
+            $newMasterBidan->is_active = 0;
             $newMasterBidan->jam_awal = $request->jam_awal;
             $newMasterBidan->jam_akhir = $request->jam_akhir;
             $newMasterBidan->save();
             return redirect('/back-master/bidan')->with('success', 'Berhasil Menambahkan Bidan Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan ' . $th);
         }
     }
     public function savePerawat(Request $request)
@@ -151,12 +147,11 @@ class AdminMasterController extends Controller
             $newMasterPerawat->nomor_perawat = $request->nomor_perawat;
             $newMasterPerawat->jam_awal = $request->jam_awal;
             $newMasterPerawat->jam_akhir = $request->jam_akhir;
-            $newMasterPerawat->is_perawat = 0; 
+            $newMasterPerawat->is_perawat = 0;
             $newMasterPerawat->save();
             return redirect('/back-master/perawat')->with('success', 'Berhasil Menambahkan Perawat Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan ' . $th);
         }
     }
     public function saveKader(Request $request)
@@ -173,12 +168,11 @@ class AdminMasterController extends Controller
             $newMasterKader->nomor_kader = $request->nomor_kader;
             $newMasterKader->jam_awal = $request->jam_awal;
             $newMasterKader->jam_akhir = $request->jam_akhir;
-            $newMasterKader->is_active = 0; 
+            $newMasterKader->is_active = 0;
             $newMasterKader->save();
             return redirect('/back-master/kader')->with('success', 'Berhasil Menambahkan Kader Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan ' . $th);
         }
     }
     public function saveNomorKader(Request $request)
@@ -193,12 +187,11 @@ class AdminMasterController extends Controller
             $newMasterNomorKader = new MasterNomorKader();
             $newMasterNomorKader->nama_kontak = $request->nama_kontak;
             $newMasterNomorKader->nomor_kader = $request->nomor_kader;
-            $newMasterNomorKader->is_active = 0; 
+            $newMasterNomorKader->is_active = 0;
             $newMasterNomorKader->save();
             return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Menambahkan Kader Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan ' . $th);
         }
     }
     public function saveNomorKades(Request $request)
@@ -213,12 +206,11 @@ class AdminMasterController extends Controller
             $newMasterNomorKades = new MasterNomorKades();
             $newMasterNomorKades->nama_kontak = $request->nama_kontak;
             $newMasterNomorKades->nomor_kades = $request->nomor_kades;
-            $newMasterNomorKades->is_active = 0; 
+            $newMasterNomorKades->is_active = 0;
             $newMasterNomorKades->save();
             return redirect('/back-master/nomor_kades')->with('success', 'Berhasil Menambahkan Kades Baru');
-
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi  Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi  Kesalahan ' . $th);
         }
     }
 
@@ -228,7 +220,7 @@ class AdminMasterController extends Controller
             MasterPekerjaan::destroy('id', $master->id);
             return redirect('/back-master/pekerjaan')->with('success', 'Berhasil Menghapus Jenis Pekerjaan');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -238,7 +230,7 @@ class AdminMasterController extends Controller
             MasterStatusHubungan::destroy('id', $master->id);
             return redirect('/back-master/status-hubungan')->with('success', 'Berhasil Menghapus Status Hubungan');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -248,7 +240,7 @@ class AdminMasterController extends Controller
             MasterDusun::destroy('id', $master->id);
             return redirect('/back-master/dusun')->with('success', 'Berhasil Menghapus Dusun');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function dropBidan(MasterBidan $master)
@@ -257,7 +249,7 @@ class AdminMasterController extends Controller
             MasterBidan::destroy('id', $master->id);
             return redirect('/back-master/bidan')->with('success', 'Berhasil Menghapus Bidan');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -267,7 +259,7 @@ class AdminMasterController extends Controller
             MasterPerawat::destroy('id', $master->id);
             return redirect('/back-master/perawat')->with('success', 'Berhasil Menghapus Perawat');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function dropKader(MasterKader $master)
@@ -276,7 +268,7 @@ class AdminMasterController extends Controller
             MasterKader::destroy('id', $master->id);
             return redirect('/back-master/kader')->with('success', 'Berhasil Menghapus Kader');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function dropNomorKader(MasterNomorKader $master)
@@ -285,7 +277,7 @@ class AdminMasterController extends Controller
             MasterNomorKader::destroy('id', $master->id);
             return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Menghapus Nomor Kader');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function dropNomorKades(MasterNomorKades $master)
@@ -294,7 +286,7 @@ class AdminMasterController extends Controller
             MasterNomorKades::destroy('id', $master->id);
             return redirect('/back-master/nomor_kades')->with('success', 'Berhasil Menghapus Nomor Kades');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 
@@ -310,7 +302,7 @@ class AdminMasterController extends Controller
             ]);
             return redirect('/back-master/bidan')->with('success', 'Berhasil Mengaktifkan Bidan');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function perawatActive(MasterPerawat $master)
@@ -324,7 +316,7 @@ class AdminMasterController extends Controller
             ]);
             return redirect('/back-master/perawat')->with('success', 'Berhasil Mengaktifkan Perawat');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function kaderActive(MasterKader $master)
@@ -338,7 +330,7 @@ class AdminMasterController extends Controller
             ]);
             return redirect('/back-master/kader')->with('success', 'Berhasil Mengaktifkan Kader');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function noKaderActive(MasterNomorKader $master)
@@ -352,7 +344,7 @@ class AdminMasterController extends Controller
             ]);
             return redirect('/back-master/nomor_kader')->with('success', 'Berhasil Mengaktifkan Nomor Kader');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
     public function noKadesActive(MasterNomorKades $master)
@@ -366,7 +358,7 @@ class AdminMasterController extends Controller
             ]);
             return redirect('/back-master/nomor_kades')->with('success', 'Berhasil Mengaktifkan Nomor Kades');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
+            return redirect()->back()->with('failed', 'Terjadi Kesalahan ' . $th);
         }
     }
 }
