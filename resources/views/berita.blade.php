@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Berita Terbaru
+Berita Terbaru
 @endsection
 @section('content')
 <style>
@@ -104,44 +104,30 @@
         }
     }
 
- 
-    .page-item.active .page-link{
+
+    .page-item.active .page-link {
         background-color: #48C1F0;
         border: #48C1F0
     }
 </style>
 
 @foreach ($beritas as $berita)
-    <div class="container" style="margin-top:50px;">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card-sl">
-                    <div class="card-image">
-                        <img src="{{asset('upload/berita/'.$berita->gambar)}}" />
-                        <div class="meta-date text-center p-2 " style="border-top-left-radius: 20px">
-                            <span class="day">{{$berita->updated_at->format('d')}}</span>
-                            <span class="mos">{{$berita->updated_at->format('M')}}</span>
-                            <span class="yr">{{$berita->updated_at->format('Y')}}</span>
-                        </div>
-                    </div>
-                    <div class="card-heading">
-                        {{$berita->judul}}
-                    </div>
-                    <div class="card-text">
-                        {!!Str::limit($berita->deskripsi, $limit=50, $end="...")!!}
-                    </div>
-                    <a href="/detailberita/{{$berita->id}}" class="card-button"> Baca berita...</a>
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-12">
+                <img class="card-img-top" src="{{asset('upload/berita/'.$berita->gambar)}}" alt="Card image cap" style="max-width: 100%;height: 200px;object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{$berita->judul}}</h5>
+                    <p class="card-text">{!!Str::limit($berita->deskripsi, $limit=50, $end="...")!!}</p>
+                    <a href="/detailberita/{{$berita->id}}" class="btn btn-outline-dark btn-sm">Baca Berita</a>
                 </div>
             </div>
-        </div> 
-    </div> 
-  
-@endforeach
-
-<div class="d-flex justify-content-center mt-3">
-  {{ $beritas->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
 </div>
 
+@endforeach
 
 @endsection
 
