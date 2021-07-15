@@ -124,10 +124,16 @@ Berita Terbaru
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
 @endforeach
+
+<div class="d-flex justify-content-center mt-3">
+    {{ $beritas->links('pagination::bootstrap-4') }}
+</div>
+
 
 @endsection
 
