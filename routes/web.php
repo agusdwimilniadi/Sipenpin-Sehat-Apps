@@ -38,6 +38,8 @@ Route::get('/', [HomeController::class, 'logins']);
 Route::get('/back-log', [BackLogController::class, 'index']);
 Route::post('/back-log/admin', [BackLogController::class, 'login']);
 Route::get('/back-dashboard', [DashboardController::class, 'index'])->middleware(['auth']);
+Route::get('/livechat', [DashboardController::class, 'livechat'])->middleware(['auth']);
+
 
 
 Route::get('/berita', [BeritaController::class, 'index']);
@@ -51,7 +53,7 @@ Route::post('/pendataan/save', [PendataanController::class, 'save']);
 Route::get('/perpustakaan', [PerpustakaanController::class, 'index']);
 Route::get('/calldarurat', [CallDaruratController::class, 'index']);
 Route::get('/calldarurat-1', [CallDaruratController::class, 'bidan']);
-Route::get('/calldarurat-2', [CallDaruratController::class, 'perawat']);
+// Route::get('/calldarurat-2', [CallDaruratController::class, 'perawat']);
 Route::get('/calldarurat-3', [CallDaruratController::class, 'kader']);
 Route::get('/calldarurat-4', [CallDaruratController::class, 'pemudadesa']);
 Route::get('/konsultasi', [KonsultasiController::class, 'index']);

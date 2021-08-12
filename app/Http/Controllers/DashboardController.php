@@ -22,4 +22,9 @@ class DashboardController extends Controller
         // }
         return view('admin.superadmin.dashboard')->with('onSide', 'dashboard');
     }
+    public function livechat()
+    {
+        return view('admin.superadmin.livechat')->with('onSide', 'livechat');
+
+    }
 }

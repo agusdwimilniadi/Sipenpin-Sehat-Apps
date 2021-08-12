@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Call Center Darurat
+Konsultasi Live Chat
 @endsection
 @section('content')
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -225,14 +225,14 @@ Call Center Darurat
 </style>
 <br>
 <a>
-    <img src="{{asset('image/icon/wa.svg')}}" alt="" srcset=""><br>
+    <img src="https://img.icons8.com/color/48/000000/chat--v3.png"/>
 </a>
 
 <div class="container contact-form">
     <button style="margin:30px;" type="submit" class="btn btn-primary" onclick="$crisp.push(['do', 'chat:open'])" id="checktimer-bidan">Konsultasi Sekarang</button>
     
 </div>
-<script>
+<!-- <script>
     $(document).on('click', '.send_form', function() {
         var input_blanter = document.getElementById('wa_name');
 
@@ -272,5 +272,5 @@ Call Center Darurat
             document.getElementById("text-info").innerHTML = '<span class="no">' + text_no + '</span>';
         }
     });
-</script>
+</script> -->
 @endsection

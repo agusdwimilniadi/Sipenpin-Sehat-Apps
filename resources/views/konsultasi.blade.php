@@ -62,7 +62,7 @@
         </div>
         <div class="col-6 text-center" >
             <img src="{{asset('image/menu/cal-2.svg')}}" alt="" srcset="" style="width: 100%"><br><br>
-            <form action="/calldarurat-2">
+            <form action="/calldarurat-1">
                 <button type="submit" class="btn btn-primary"id="checktimer-perawat">Konsultasi Sekarang</button>
             </form>
         </div>
