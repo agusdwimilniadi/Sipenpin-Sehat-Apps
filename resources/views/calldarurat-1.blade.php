@@ -2,6 +2,11 @@
 @section('title')
 Konsultasi Live Chat
 @endsection
+
+@section('chatscript')
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ec91f130-1c98-4c62-a738-924b6d085117";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+@endsection
+
 @section('content')
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

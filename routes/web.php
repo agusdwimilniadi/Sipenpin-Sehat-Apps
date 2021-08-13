@@ -53,7 +53,7 @@ Route::post('/pendataan/save', [PendataanController::class, 'save']);
 Route::get('/perpustakaan', [PerpustakaanController::class, 'index']);
 Route::get('/calldarurat', [CallDaruratController::class, 'index']);
 Route::get('/calldarurat-1', [CallDaruratController::class, 'bidan']);
-// Route::get('/calldarurat-2', [CallDaruratController::class, 'perawat']);
+Route::get('/calldarurat-2', [CallDaruratController::class, 'perawat']);
 Route::get('/calldarurat-3', [CallDaruratController::class, 'kader']);
 Route::get('/calldarurat-4', [CallDaruratController::class, 'pemudadesa']);
 Route::get('/konsultasi', [KonsultasiController::class, 'index']);
