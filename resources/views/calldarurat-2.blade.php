@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Konsultasi Live Chat
+Live Chat Perawat
 @endsection
 
 @section('chatscript')
