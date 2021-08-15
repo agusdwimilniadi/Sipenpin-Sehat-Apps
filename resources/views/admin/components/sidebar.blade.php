@@ -12,11 +12,7 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    <li class="nav-item @if ($onSide == 'livechat') active @endif">
-        <a class="nav-link" href="{{url('/livechat')}}">
-            <i class="fas fa-comment-alt fa-comment-alt"></i>
-            <span>Live Chat</span></a>
-    </li>
+   
 
     <!-- Divider -->
     <hr class="sidebar-divider">
@@ -54,6 +50,11 @@
             <i class="fas fa-fw fa-book-medical"></i>
             <span>Perpustakaan Sehat</span>
         </a>
+    </li>
+    <li class="nav-item @if ($onSide == 'livechat') active @endif">
+        <a class="nav-link" href="{{url('/livechat')}}">
+            <i class="fas fa-comment-alt fa-comment-alt"></i>
+            <span>Live Chat</span></a>
     </li>
     @endrole
 
@@ -119,6 +120,11 @@
                 <a class="collapse-item @if ($onSide == 'perawat') active @endif" href="{{url('/back-master/perawat')}}">Perawat</a>
             </div>
         </div>
+    </li>
+    <li class="nav-item @if ($onSide == 'livechat') active @endif">
+        <a class="nav-link" href="{{url('/livechat')}}">
+            <i class="fas fa-comment-alt fa-comment-alt"></i>
+            <span>Live Chat</span></a>
     </li>
     <li class="nav-item @if ($onSide == 'slider') active @endif">
         <a class="nav-link" href="{{url('/back-statistik')}}">
