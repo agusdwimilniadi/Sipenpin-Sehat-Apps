@@ -14,4 +14,8 @@ class BeratController extends Controller
     {
         return view('beratbadan');
     }
+    public function gizi()
+    {
+        return view('cek-gizi');
+    }
 }

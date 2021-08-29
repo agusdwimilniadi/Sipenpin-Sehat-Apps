@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Berat Badan Ideal
+    Cek Gizi
 @endsection
 
 @section('content')
@@ -22,25 +22,25 @@ a {
 }
 </style>
 <script>
-function calculateBmi() {
-    var weight = document.techBMI.weight.value
-    var height = (document.techBMI.height.value)/100
-    if(weight > 0 && height > 0){	
-    var finalBmi = weight/(height*height)
-    document.techBMI.bmi.value = finalBmi.toFixed(3);
-    if(finalBmi < 18.5){
-    document.techBMI.meaning.value = "Anda terlalu kurus."
-        }
-    if(finalBmi > 18.5 && finalBmi < 25){
-    document.techBMI.meaning.value = "Anda cukup sehat."
-        }
-    if(finalBmi > 25 &&  finalBmi <30){
-    document.techBMI.meaning.value = "Anda Kelebihan Berat Badan"
-        }
-    if(finalBmi > 30){
-    document.techBMI.meaning.value = "Anda kelebihan berat badan."
-        }
-        }
+function calculateScore() {
+var weight = document.techBMI.weight.value
+var height = (document.techBMI.height.value)/100
+if(weight > 0 && height > 0){	
+var finalBmi = weight/(height*height)
+document.techBMI.bmi.value = finalBmi.toFixed(3);
+if(finalBmi < 18.5){
+document.techBMI.meaning.value = "Anda terlalu kurus."
+    }
+if(finalBmi > 18.5 && finalBmi < 25){
+document.techBMI.meaning.value = "Anda cukup sehat."
+    }
+if(finalBmi > 25 &&  finalBmi <30){
+document.techBMI.meaning.value = "Anda Kelebihan Berat Badan"
+    }
+if(finalBmi > 30){
+document.techBMI.meaning.value = "Anda kelebihan berat badan."
+    }
+    }
 
     }
 </script>
@@ -100,7 +100,7 @@ function calculateBmi() {
     <br>
     <input class="decoration-one px-3 py-2" style="color: #ffff" type="reset" value="Reset" />
     <br/>
-    <a href="/cek-gizi">Cek Gizi</a>
+    <a href=""></a>
     </form>
 </div>
 <br>
