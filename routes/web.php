@@ -44,7 +44,10 @@ Route::get('/livechat', [DashboardController::class, 'livechat'])->middleware(['
 
 Route::get('/berita', [BeritaController::class, 'index']);
 Route::get('/detailberita/{id}', [DetailBeritaController::class, 'index']);
+Route::get('/kalkulator', [BeratController::class, 'kalkulator']);
 Route::get('/beratbadan', [BeratController::class, 'index']);
+Route::get('/tekanandarah', [BeratController::class, 'tekanan']);
+Route::get('/cekoksigen', [BeratController::class, 'oksigen']);
 Route::get('/cek-gizi', [BeratController::class, 'gizi']);
 Route::get('/buku', [BukuController::class, 'index']);
 Route::get('/akun', [AkunController::class, 'index']);

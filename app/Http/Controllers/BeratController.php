@@ -18,4 +18,16 @@ class BeratController extends Controller
     {
         return view('cek-gizi');
     }
+    public function kalkulator()
+    {
+        return view('kalkulator');
+    }
+    public function tekanan()
+    {
+        return view('comingsoon');
+    }
+    public function oksigen()
+    {
+        return view('comingsoon');
+    }
 }

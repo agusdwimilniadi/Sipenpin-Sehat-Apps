@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Berat Badan BMI
+    Kadar Oksigen
 @endsection
 
 @section('content')
@@ -100,6 +100,7 @@ function calculateBmi() {
     <br>
     <input class="decoration-one px-3 py-2" style="color: #ffff" type="reset" value="Reset" />
     <br/>
+    <a href="/cek-gizi">Cek Gizi</a>
     </form>
 </div>
 <br>

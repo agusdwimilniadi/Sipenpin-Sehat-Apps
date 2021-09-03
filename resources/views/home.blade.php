@@ -51,7 +51,7 @@ SIPENPIN SEHAT
       </a>
     </div>
     <div class="col-4 text-center">
-      <a href="/beratbadan">
+      <a href="/kalkulator">
         <img src="{{asset('image/menu/3.svg')}}" alt="" srcset="" style="width: 100%"><br>
       </a>
     </div>
