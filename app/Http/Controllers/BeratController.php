@@ -24,10 +24,10 @@ class BeratController extends Controller
     }
     public function tekanan()
     {
-        return view('comingsoon');
+        return view('tekanandarah');
     }
     public function oksigen()
     {
-        return view('comingsoon');
+        return view('oksigen');
     }
 }
