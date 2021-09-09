@@ -9,12 +9,12 @@
 
     <div class="row">
         <div class="col-6 text-center">
-            <a href="tel:{{$nomor_kader_aktif->nomor_kader}}"   >
+            <a href="tel:{{$nomor_kades_aktif->nomor_kades}}"   >
                 <img src="{{asset('image/menu/cal-3.svg')}}" alt="" srcset="" style="width: 100%"><br>
             </a>
         </div>
         <div class="col-6 text-center">
-            <a href="tel:{{$nomor_kades_aktif->nomor_kades}}" >
+            <a href="tel:{{$nomor_kader_aktif->nomor_kader}}" >
                 <img src="{{asset('image/menu/cal-4.svg')}}" alt="" srcset="" style="width: 100%"><br>
             </a>
         </div>
