@@ -34,7 +34,9 @@ use App\Http\Controllers\AdminUserController;
 |
 */
 Auth::routes();
-Route::get('/', [HomeController::class, 'logins']);
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth'])->name('home');
+// Route::get('/', [HomeController::class, 'logins']);
 Route::get('/back-log', [BackLogController::class, 'index']);
 Route::post('/back-log/admin', [BackLogController::class, 'login']);
 Route::get('/back-dashboard', [DashboardController::class, 'index'])->middleware(['auth']);
@@ -128,4 +130,3 @@ Route::get('/konsultasi', [KonsultasiController::class, 'index']);
     Route::delete('/back-user/{user}/drop', [AdminUserController::class, 'drop']);
 // });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

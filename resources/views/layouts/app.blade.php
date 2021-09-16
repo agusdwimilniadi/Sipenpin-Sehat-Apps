@@ -64,7 +64,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Mulish:wght@400;700&display=swap');
     </style>
-    {{-- 
+    {{--
         font-family: 'Montserrat', sans-serif;
         font-family: 'Mulish', sans-serif;
         --}}
@@ -95,7 +95,7 @@
 
 
 <body>
-    
+
     <div id="app">
         <div class="preloader">
             <div class="loading">
@@ -120,7 +120,7 @@
                                     @yield('content')
                                 </div>
                                     @yield('under-content')
-                                <br>    
+                                <br>
                             </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
             <div class="col-8">
                 <div class="row" style="color: black">
                     <div class="col-4 menu d-flex justify-content-center text-center">
-                        <a href="/home" style="text-decoration: none; color: rgb(255, 255, 255)" >
+                        <a href="/" style="text-decoration: none; color: rgb(255, 255, 255)" >
                             <img src="{{asset('image/menu/bot-1.svg')}}" alt="" srcset="">
                         </a>
                     </div>
@@ -169,7 +169,7 @@
     </script>
 
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     @yield('extraJS')
 </body>

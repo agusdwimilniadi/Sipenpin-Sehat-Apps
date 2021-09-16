@@ -26,7 +26,7 @@ class PendataanController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        
+
     }
     public function index()
     {
@@ -38,7 +38,7 @@ class PendataanController extends Controller
         $listPekerjaan = MasterPekerjaan::all();
         $listStatusHubungan = MasterStatusHubungan::all();
         return view('new-pendataan', ['listUser' => $listUser, 'listDusun' => $listDusun, 'listPekerjaan' => $listPekerjaan, 'listStatusHubungan' => $listStatusHubungan])->with('onSide', 'userDetail');
-        
+
     }
     public function save(Request $request)
     {
@@ -50,7 +50,7 @@ class PendataanController extends Controller
             'jenis_kelamin' => 'required',
             'alamat' => 'required',
             'rt' => 'required',
-            'rw' => 'required', 
+            'rw' => 'required',
             'dusun' => 'required',
             'nik' => 'required|max:16|min:16',
             'pekerjaan' => 'required',
@@ -142,7 +142,7 @@ class PendataanController extends Controller
 
         try {
             $newUserDetail = new UserDetail();
-            $newUserDetail->user_id = \Auth::user()->id; 
+            $newUserDetail->user_id = \Auth::user()->id;
             $newUserDetail->nama_lengkap = $request->nama_lengkap;
             $newUserDetail->tempat_lahir = $request->tempat_lahir;
             $newUserDetail->tanggal_lahir = $request->tanggal_lahir;
@@ -158,7 +158,7 @@ class PendataanController extends Controller
             $newUserDetail->save();
 
             $newRiwayatPenyakit = new RiwayatPenyakit();
-            $newRiwayatPenyakit->user_detail_id = $newUserDetail->id; 
+            $newRiwayatPenyakit->user_detail_id = $newUserDetail->id;
             $newRiwayatPenyakit->p_ispa = $request->p_ispa;
             $newRiwayatPenyakit->p_muntaber = $request->p_muntaber;
             $newRiwayatPenyakit->p_demam_berdarah = $request->p_demam_berdarah;
@@ -253,7 +253,7 @@ class PendataanController extends Controller
             $newPhbsJambanSehat->js_bab_bak = $request->js_bab_bak;
             $newPhbsJambanSehat->js_mudah_dibersihkan = $request->js_mudah_dibersihkan;
             $newPhbsJambanSehat->js_membersihkan_setiap_hari = $request->js_membersihkan_setiap_hari;
-            $newPhbsJambanSehat->save();            
+            $newPhbsJambanSehat->save();
 
             $newPhbsJentikNyamuk = new PhbsJentikNyamuk();
             $newPhbsJentikNyamuk->user_detail_id = $newUserDetail->id;
@@ -267,7 +267,7 @@ class PendataanController extends Controller
             $newPhbsBuahSayur->bs_mengkonsumsi = $request->bs_mengkonsumsi;
             $newPhbsBuahSayur->bs_segar_sehat = $request->bs_segar_sehat;
             $newPhbsBuahSayur->save();
-            
+
             $newPhbsAktivitasFisik = new PhbsAktivitasFisik();
             $newPhbsAktivitasFisik->user_detail_id = $newUserDetail->id;
             $newPhbsAktivitasFisik->af_olahraga = $request->af_olahraga;
@@ -278,9 +278,9 @@ class PendataanController extends Controller
             $newPhbsMerokok->r_dalam_rumah = $request->r_dalam_rumah;
             $newPhbsMerokok->r_asbak_rokok = $request->r_asbak_rokok;
             $newPhbsMerokok->r_tanpa_rokok = $request->r_tanpa_rokok;
-            $newPhbsMerokok->save();            
-            
-            return redirect('/home')->with('success', 'Berhasil Menambahkan Pendataan');
+            $newPhbsMerokok->save();
+
+            return redirect('/')->with('success', 'Berhasil Menambahkan Pendataan');
 
         } catch (\Throwable $th) {
             return redirect()->back()->with('failed', 'Terjadi Kesalahan '.$th);
